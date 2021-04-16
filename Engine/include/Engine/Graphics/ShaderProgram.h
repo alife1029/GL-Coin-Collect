@@ -2,6 +2,7 @@
 
 #include "Engine/API.h"
 #include "Engine/Math/Vector2.h"
+#include "Engine/Math/Vector4.h"
 #include "Engine/Math/Matrix3.h"
 #include <cstdint>
 
@@ -17,6 +18,7 @@ namespace engine {
 
 		// Uniforms
 		void SetUniformVec2(const char* varName, const Vector2& val);
+		void SetUniformVec4(const char* varName, const Vector4& val);
 		void SetUniformMat3(const char* varName, const Matrix3& val);
 	private:
 		uint32_t m_ProgramID;

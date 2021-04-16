@@ -51,7 +51,8 @@ void Player::Update()
 void Player::IncreaseScore()
 {
 	++m_Score;
-	printf("%d\n", m_Score);
+	std::string scoreStr = "Score: " + std::to_string(m_Score);
+	m_TextRenderer->SetText(scoreStr.c_str());
 }
 
 std::string Player::GetType()

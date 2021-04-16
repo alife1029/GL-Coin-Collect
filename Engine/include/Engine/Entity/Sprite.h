@@ -11,7 +11,7 @@ namespace engine {
 	{
 	public:
 		Sprite(const char* imageName, const Vector2& size);
-		virtual void Update() override;
+		void Update() override;
 	};
 
 }

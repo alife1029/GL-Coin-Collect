@@ -91,6 +91,7 @@ namespace engine {
 		Transform* t = GetGameObject()->GetComponent<Transform>();
 		Matrix3 transform = Matrix3::Translate(t->GetPosition()) * Matrix3::Rotate(0.0f) * Matrix3::Scale(t->GetScale());
 		m_Shader->SetUniformMat3("u_Transform", transform);
+		glActiveTexture(GL_TEXTURE0);
 		glBindVertexArray(m_VAO);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_IBO);
 		glBindTexture(GL_TEXTURE_2D, m_TexID);

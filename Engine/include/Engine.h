@@ -13,13 +13,17 @@
 #include <Engine/Components/Transform.h>
 #include <Engine/Components/SpriteRenderer.h>
 #include <Engine/Components/Animator.h>
+#include <Engine/Components/TextRenderer.h>
 
 // Entity System
 #include <Engine/Entity/GameObject.h>
 #include <Engine/Entity/Sprite.h>
+#include <Engine/Entity/Text.h>
 
 // Math
 #include <Engine/Math/Vector2.h>
+#include <Engine/Math/Vector2Int.h>
+#include <Engine/Math/Matrix3.h>
 
 // Utils
 #include <Engine/File.h>

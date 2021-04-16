@@ -10,6 +10,8 @@ public:
 	void Update() override;
 	void IncreaseScore();
 	std::string GetType() override;
+public:
+	engine::TextRenderer* m_TextRenderer = nullptr;
 private:
 	engine::Transform* m_Transform = nullptr;
 	engine::Animator* m_Animator = nullptr;

@@ -96,6 +96,11 @@ namespace engine {
 		glUniform2f(glGetUniformLocation(m_ProgramID, varName), val.x, val.y);
 	}
 
+	void ShaderProgram::SetUniformVec4(const char* varName, const Vector4& val)
+	{
+		glUniform4f(glGetUniformLocation(m_ProgramID, varName), val.r, val.g, val.b, val.a);
+	}
+
 	void ShaderProgram::SetUniformMat3(const char* varName, const Matrix3& val)
 	{
 		glUniformMatrix3fv(glGetUniformLocation(m_ProgramID, varName), 1, GL_FALSE, (GLfloat*)&val);

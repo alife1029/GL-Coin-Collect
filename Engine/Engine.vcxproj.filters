@@ -78,6 +78,21 @@
     <ClInclude Include="include\Engine\Graphics\Viewport.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\Engine\Graphics\FontManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Engine\Math\Vector2Int.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Engine\Components\TextRenderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Engine\Math\Vector4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Engine\Entity\Text.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Application\Application.cpp">
@@ -134,9 +149,20 @@
     <ClCompile Include="src\Graphics\Viewport.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Graphics\FontManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Components\TextRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Entity\Text.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="GLshaders\sprite.vert" />
     <None Include="GLshaders\sprite.frag" />
+    <None Include="GLshaders\text.frag" />
+    <None Include="GLshaders\text.vert" />
   </ItemGroup>
 </Project>
