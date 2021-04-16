@@ -5,15 +5,16 @@
 
 #include <Engine.h>
 #include <Scripts.h>
-#include <stdio.h>
 
 using namespace engine;
 
-class AppleCollector : public Application
+class AppleCollector : public Application, EventSystem
 {
 public:
 	AppleCollector(const ApplicationConfig& config) : Application(config)
 	{
+		viewport = new Viewport(config.width, config.height);
+
 		background = new Sprite("assets/background.png", { 2.0f, 2.0f });
 		ground = new Sprite("assets/ground.png", { 2.0f, 0.4f });
 		player = new Sprite("assets/Character/idle.png", { 0.36f, 0.48f });
@@ -29,9 +30,12 @@ public:
 
 		coin->AddComponent(new Coin());
 		coin->GetComponent<Coin>()->m_Player = player;
+
+		SetEventListener(this);
 	}
 	~AppleCollector()
 	{
+		delete viewport;
 		delete background;
 		delete ground;
 		delete player;
@@ -46,7 +50,13 @@ public:
 		coin->Update();
 	}
 
+	void Resize(int width, int height) override
+	{
+		viewport->Update(width, height);
+	}
+
 private:
+	Viewport* viewport;
 	Sprite* background;
 	Sprite* ground;
 	Sprite* player;

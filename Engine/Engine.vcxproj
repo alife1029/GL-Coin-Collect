@@ -179,6 +179,7 @@
     <ClInclude Include="include\Engine\API.h" />
     <ClInclude Include="include\Engine\Application\Application.h" />
     <ClInclude Include="include\Engine\Components\Animator.h" />
+    <ClInclude Include="include\Engine\Graphics\Viewport.h" />
     <ClInclude Include="include\Engine\Input\EventSystem.h" />
     <ClInclude Include="include\Engine\Input\Input.h" />
     <ClInclude Include="include\Engine\Input\Keys.h" />
@@ -200,6 +201,7 @@
     <ClCompile Include="include\Engine\Application\ApplicationConfig.h" />
     <ClCompile Include="src\Application\Application.cpp" />
     <ClCompile Include="src\Components\Animator.cpp" />
+    <ClCompile Include="src\Graphics\Viewport.cpp" />
     <ClCompile Include="src\Input\EventSystem.cpp" />
     <ClCompile Include="src\Application\Window.cpp" />
     <ClCompile Include="src\Components\SpriteRenderer.cpp" />

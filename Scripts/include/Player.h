@@ -13,7 +13,7 @@ public:
 private:
 	engine::Transform* m_Transform = nullptr;
 	engine::Animator* m_Animator = nullptr;
-	float m_Speed = 0.7f;
+	float m_Speed = 0.9f;
 	uint32_t m_Score = 0;
 	float m_Direction = 0.0f;
 	bool m_MovementState = 0;

@@ -14,6 +14,6 @@ private:
 public:
 	engine::GameObject* m_Player = nullptr;
 private:
-	engine::Transform* m_Transform;
-	float m_Speed = 0.8f;
+	engine::Transform* m_Transform = nullptr;
+	float m_Speed = 1.0f;
 };
