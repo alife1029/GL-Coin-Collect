@@ -9,11 +9,15 @@
 #include <Engine/Input/Input.h>
 #include <Engine/Input/Keys.h>
 
+// Sound
+#include <Engine/Sound/AudioClip.h>
+
 // Components
 #include <Engine/Components/Transform.h>
 #include <Engine/Components/SpriteRenderer.h>
 #include <Engine/Components/Animator.h>
 #include <Engine/Components/TextRenderer.h>
+#include <Engine/Components/SoundSource.h>
 
 // Entity System
 #include <Engine/Entity/GameObject.h>

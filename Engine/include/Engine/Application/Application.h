@@ -6,6 +6,8 @@
 
 namespace engine {
 
+	class SoundDevice;
+
 	class ENGINE_API Application
 	{
 	public:
@@ -16,6 +18,7 @@ namespace engine {
 
 	private:
 		Window* m_Window;
+		SoundDevice* m_SoundDevice;
 
 		friend class EventSystem;
 	};

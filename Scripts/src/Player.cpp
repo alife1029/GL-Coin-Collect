@@ -7,6 +7,7 @@ void Player::OnAttach()
 {
 	m_Transform = GetGameObject()->GetComponent<Transform>();
 	m_Animator = GetGameObject()->GetComponent<Animator>();
+	m_SoundSource = GetGameObject()->GetComponent<SoundSource>();
 }
 void Player::Update() 
 {
@@ -53,6 +54,7 @@ void Player::IncreaseScore()
 	++m_Score;
 	std::string scoreStr = "Score: " + std::to_string(m_Score);
 	m_TextRenderer->SetText(scoreStr.c_str());
+	m_SoundSource->Play(m_CoinAudio);
 }
 
 std::string Player::GetType()

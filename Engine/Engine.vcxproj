@@ -100,17 +100,19 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>ENGINE_BUILD_DLL;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\freetype\include\;$(ProjectDir)include\;$(SolutionDir)Dependencies\glad\include\;$(SolutionDir)Dependencies\GLFW\include\;$(SolutionDir)Dependencies\stb\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\sndfile\include\;$(SolutionDir)Dependencies\OpenAL\include\;$(SolutionDir)Dependencies\freetype\include\;$(ProjectDir)include\;$(SolutionDir)Dependencies\glad\include\;$(SolutionDir)Dependencies\GLFW\include\;$(SolutionDir)Dependencies\stb\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\freetype\lib\$(Platform)\;$(SolutionDir)Dependencies\glad\lib\$(Platform);$(SolutionDir)Dependencies\GLFW\lib-vc2019\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>freetype.lib;glfw3.lib;glad.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\sndfile\lib\$(Platform)\;$(SolutionDir)Dependencies\OpenAL\lib\$(Platform)\;$(SolutionDir)Dependencies\freetype\lib\$(Platform)\;$(SolutionDir)Dependencies\glad\lib\$(Platform);$(SolutionDir)Dependencies\GLFW\lib-vc2019\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sndfile.lib;OpenAL32.lib;freetype.lib;glfw3.lib;glad.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy "$(ProjectDir)GLshaders" "$(TargetDir)GLshaders" /e /y /i /r
-copy /y "$(SolutionDir)Dependencies\freetype\lib\$(Platform)\freetype.dll" "$(TargetDir)freetype.dll"</Command>
+copy /y "$(SolutionDir)Dependencies\freetype\lib\$(Platform)\freetype.dll" "$(TargetDir)freetype.dll"
+copy /y "$(SolutionDir)Dependencies\OpenAL\bin\$(Platform)\OpenAL32.dll" "$(TargetDir)OpenAL32.dll"
+copy /y "$(SolutionDir)Dependencies\sndfile\bin\$(Platform)\sndfile.dll" "$(TargetDir)sndfile.dll"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -121,19 +123,21 @@ copy /y "$(SolutionDir)Dependencies\freetype\lib\$(Platform)\freetype.dll" "$(Ta
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>ENGINE_BUILD_DLL;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\freetype\include\;$(ProjectDir)include\;$(SolutionDir)Dependencies\glad\include\;$(SolutionDir)Dependencies\GLFW\include\;$(SolutionDir)Dependencies\stb\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\sndfile\include\;$(SolutionDir)Dependencies\OpenAL\include\;$(SolutionDir)Dependencies\freetype\include\;$(ProjectDir)include\;$(SolutionDir)Dependencies\glad\include\;$(SolutionDir)Dependencies\GLFW\include\;$(SolutionDir)Dependencies\stb\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\freetype\lib\$(Platform)\;$(SolutionDir)Dependencies\glad\lib\$(Platform);$(SolutionDir)Dependencies\GLFW\lib-vc2019\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>freetype.lib;glfw3.lib;glad.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\sndfile\lib\$(Platform)\;$(SolutionDir)Dependencies\OpenAL\lib\$(Platform)\;$(SolutionDir)Dependencies\freetype\lib\$(Platform)\;$(SolutionDir)Dependencies\glad\lib\$(Platform);$(SolutionDir)Dependencies\GLFW\lib-vc2019\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sndfile.lib;OpenAL32.lib;freetype.lib;glfw3.lib;glad.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy "$(ProjectDir)GLshaders" "$(TargetDir)GLshaders" /e /y /i /r
-copy /y "$(SolutionDir)Dependencies\freetype\lib\$(Platform)\freetype.dll" "$(TargetDir)freetype.dll"</Command>
+copy /y "$(SolutionDir)Dependencies\freetype\lib\$(Platform)\freetype.dll" "$(TargetDir)freetype.dll"
+copy /y "$(SolutionDir)Dependencies\OpenAL\bin\$(Platform)\OpenAL32.dll" "$(TargetDir)OpenAL32.dll"
+copy /y "$(SolutionDir)Dependencies\sndfile\bin\$(Platform)\sndfile.dll" "$(TargetDir)sndfile.dll"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -142,17 +146,19 @@ copy /y "$(SolutionDir)Dependencies\freetype\lib\$(Platform)\freetype.dll" "$(Ta
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>ENGINE_BUILD_DLL;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\freetype\include\;$(ProjectDir)include\;$(SolutionDir)Dependencies\glad\include\;$(SolutionDir)Dependencies\GLFW\include\;$(SolutionDir)Dependencies\stb\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\sndfile\include\;$(SolutionDir)Dependencies\OpenAL\include\;$(SolutionDir)Dependencies\freetype\include\;$(ProjectDir)include\;$(SolutionDir)Dependencies\glad\include\;$(SolutionDir)Dependencies\GLFW\include\;$(SolutionDir)Dependencies\stb\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\freetype\lib\$(Platform)\;$(SolutionDir)Dependencies\glad\lib\$(Platform);$(SolutionDir)Dependencies\GLFW\lib-vc2019\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>freetype.lib;glfw3.lib;glad.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\sndfile\lib\$(Platform)\;$(SolutionDir)Dependencies\OpenAL\lib\$(Platform)\;$(SolutionDir)Dependencies\freetype\lib\$(Platform)\;$(SolutionDir)Dependencies\glad\lib\$(Platform);$(SolutionDir)Dependencies\GLFW\lib-vc2019\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sndfile.lib;OpenAL32.lib;freetype.lib;glfw3.lib;glad.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy "$(ProjectDir)GLshaders" "$(TargetDir)GLshaders" /e /y /i /r
-copy /y "$(SolutionDir)Dependencies\freetype\lib\$(Platform)\freetype.dll" "$(TargetDir)freetype.dll"</Command>
+copy /y "$(SolutionDir)Dependencies\freetype\lib\$(Platform)\freetype.dll" "$(TargetDir)freetype.dll"
+copy /y "$(SolutionDir)Dependencies\OpenAL\bin\$(Platform)\OpenAL32.dll" "$(TargetDir)OpenAL32.dll"
+copy /y "$(SolutionDir)Dependencies\sndfile\bin\$(Platform)\sndfile.dll" "$(TargetDir)sndfile.dll"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -163,19 +169,21 @@ copy /y "$(SolutionDir)Dependencies\freetype\lib\$(Platform)\freetype.dll" "$(Ta
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>ENGINE_BUILD_DLL;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\freetype\include\;$(ProjectDir)include\;$(SolutionDir)Dependencies\glad\include\;$(SolutionDir)Dependencies\GLFW\include\;$(SolutionDir)Dependencies\stb\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\sndfile\include\;$(SolutionDir)Dependencies\OpenAL\include\;$(SolutionDir)Dependencies\freetype\include\;$(ProjectDir)include\;$(SolutionDir)Dependencies\glad\include\;$(SolutionDir)Dependencies\GLFW\include\;$(SolutionDir)Dependencies\stb\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\freetype\lib\$(Platform)\;$(SolutionDir)Dependencies\glad\lib\$(Platform);$(SolutionDir)Dependencies\GLFW\lib-vc2019\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>freetype.lib;glfw3.lib;glad.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\sndfile\lib\$(Platform)\;$(SolutionDir)Dependencies\OpenAL\lib\$(Platform)\;$(SolutionDir)Dependencies\freetype\lib\$(Platform)\;$(SolutionDir)Dependencies\glad\lib\$(Platform);$(SolutionDir)Dependencies\GLFW\lib-vc2019\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sndfile.lib;OpenAL32.lib;freetype.lib;glfw3.lib;glad.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy "$(ProjectDir)GLshaders" "$(TargetDir)GLshaders" /e /y /i /r
-copy /y "$(SolutionDir)Dependencies\freetype\lib\$(Platform)\freetype.dll" "$(TargetDir)freetype.dll"</Command>
+copy /y "$(SolutionDir)Dependencies\freetype\lib\$(Platform)\freetype.dll" "$(TargetDir)freetype.dll"
+copy /y "$(SolutionDir)Dependencies\OpenAL\bin\$(Platform)\OpenAL32.dll" "$(TargetDir)OpenAL32.dll"
+copy /y "$(SolutionDir)Dependencies\sndfile\bin\$(Platform)\sndfile.dll" "$(TargetDir)sndfile.dll"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -183,6 +191,7 @@ copy /y "$(SolutionDir)Dependencies\freetype\lib\$(Platform)\freetype.dll" "$(Ta
     <ClInclude Include="include\Engine\API.h" />
     <ClInclude Include="include\Engine\Application\Application.h" />
     <ClInclude Include="include\Engine\Components\Animator.h" />
+    <ClInclude Include="include\Engine\Components\SoundSource.h" />
     <ClInclude Include="include\Engine\Components\TextRenderer.h" />
     <ClInclude Include="include\Engine\Entity\Text.h" />
     <ClInclude Include="include\Engine\Graphics\FontManager.h" />
@@ -204,12 +213,16 @@ copy /y "$(SolutionDir)Dependencies\freetype\lib\$(Platform)\freetype.dll" "$(Ta
     <ClInclude Include="include\Engine\Math\Vector2.h" />
     <ClInclude Include="include\Engine\Math\Vector2Int.h" />
     <ClInclude Include="include\Engine\Math\Vector4.h" />
+    <ClInclude Include="include\Engine\Sound\AudioClip.h" />
+    <ClInclude Include="include\Engine\Sound\SoundBuffer.h" />
+    <ClInclude Include="include\Engine\Sound\SoundDevice.h" />
     <ClInclude Include="include\Engine\Time.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="include\Engine\Application\ApplicationConfig.h" />
     <ClCompile Include="src\Application\Application.cpp" />
     <ClCompile Include="src\Components\Animator.cpp" />
+    <ClCompile Include="src\Components\SoundSource.cpp" />
     <ClCompile Include="src\Components\TextRenderer.cpp" />
     <ClCompile Include="src\Entity\Text.cpp" />
     <ClCompile Include="src\Graphics\FontManager.cpp" />
@@ -227,6 +240,9 @@ copy /y "$(SolutionDir)Dependencies\freetype\lib\$(Platform)\freetype.dll" "$(Ta
     <ClCompile Include="src\Graphics\TextureManager.cpp" />
     <ClCompile Include="src\Input\Input.cpp" />
     <ClCompile Include="src\Math\Matrix3.cpp" />
+    <ClCompile Include="src\Sound\AudioClip.cpp" />
+    <ClCompile Include="src\Sound\SoundBuffer.cpp" />
+    <ClCompile Include="src\Sound\SoundDevice.cpp" />
     <ClCompile Include="src\Time.cpp" />
   </ItemGroup>
   <ItemGroup>

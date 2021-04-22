@@ -12,7 +12,9 @@ public:
 	std::string GetType() override;
 public:
 	engine::TextRenderer* m_TextRenderer = nullptr;
+	engine::AudioClip* m_CoinAudio = nullptr;
 private:
+	engine::SoundSource* m_SoundSource = nullptr;
 	engine::Transform* m_Transform = nullptr;
 	engine::Animator* m_Animator = nullptr;
 	float m_Speed = 0.9f;

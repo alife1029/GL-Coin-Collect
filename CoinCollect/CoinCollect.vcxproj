@@ -110,7 +110,8 @@
     <PostBuildEvent>
       <Command>xcopy "$(ProjectDir)assets" "$(TargetDir)assets" /e /y /i /r
 xcopy "$(ProjectDir)anim" "$(TargetDir)anim" /e /y /i /r
-xcopy "$(ProjectDir)fonts" "$(TargetDir)fonts" /e /y /i /r</Command>
+xcopy "$(ProjectDir)fonts" "$(TargetDir)fonts" /e /y /i /r
+xcopy "$(ProjectDir)sound" "$(TargetDir)sound" /e /y /i /r</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -132,7 +133,8 @@ xcopy "$(ProjectDir)fonts" "$(TargetDir)fonts" /e /y /i /r</Command>
     <PostBuildEvent>
       <Command>xcopy "$(ProjectDir)assets" "$(TargetDir)assets" /e /y /i /r
 xcopy "$(ProjectDir)anim" "$(TargetDir)anim" /e /y /i /r
-xcopy "$(ProjectDir)fonts" "$(TargetDir)fonts" /e /y /i /r</Command>
+xcopy "$(ProjectDir)fonts" "$(TargetDir)fonts" /e /y /i /r
+xcopy "$(ProjectDir)sound" "$(TargetDir)sound" /e /y /i /r</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -150,7 +152,8 @@ xcopy "$(ProjectDir)fonts" "$(TargetDir)fonts" /e /y /i /r</Command>
     <PostBuildEvent>
       <Command>xcopy "$(ProjectDir)assets" "$(TargetDir)assets" /e /y /i /r
 xcopy "$(ProjectDir)anim" "$(TargetDir)anim" /e /y /i /r
-xcopy "$(ProjectDir)fonts" "$(TargetDir)fonts" /e /y /i /r</Command>
+xcopy "$(ProjectDir)fonts" "$(TargetDir)fonts" /e /y /i /r
+xcopy "$(ProjectDir)sound" "$(TargetDir)sound" /e /y /i /r</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -172,7 +175,8 @@ xcopy "$(ProjectDir)fonts" "$(TargetDir)fonts" /e /y /i /r</Command>
     <PostBuildEvent>
       <Command>xcopy "$(ProjectDir)assets" "$(TargetDir)assets" /e /y /i /r
 xcopy "$(ProjectDir)anim" "$(TargetDir)anim" /e /y /i /r
-xcopy "$(ProjectDir)fonts" "$(TargetDir)fonts" /e /y /i /r</Command>
+xcopy "$(ProjectDir)fonts" "$(TargetDir)fonts" /e /y /i /r
+xcopy "$(ProjectDir)sound" "$(TargetDir)sound" /e /y /i /r</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

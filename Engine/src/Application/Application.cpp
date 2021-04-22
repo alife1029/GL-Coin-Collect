@@ -1,4 +1,5 @@
 #include "Engine/Application/Application.h"
+#include "Engine/Sound/SoundDevice.h"
 #include "Engine/Input/Input.h"
 #include "Engine/Time.h"
 #include <glad/glad.h>
@@ -10,6 +11,9 @@ namespace engine {
 	{
 		m_Window = new Window(config.width, config.height, config.title, config.fullscreen);
 		Input::m_Window = m_Window->GetGLFWwindow();
+		
+		// Initialize Sound Device
+		m_SoundDevice = SoundDevice::Get();
 	}
 
 	Application::~Application()

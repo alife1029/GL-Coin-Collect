@@ -15,27 +15,39 @@ public:
 	{
 		viewport = new Viewport(config.width, config.height);
 
+		// Create game objects
 		background = new Sprite("assets/background.png", { 2.0f, 2.0f });
 		ground = new Sprite("assets/ground.png", { 2.0f, 0.4f });
 		player = new Sprite("assets/Character/idle.png", { 0.36f, 0.48f });
 		coin = new Sprite("assets/coinGold.png", { 0.12f, 0.12f });
 		text = new Text();
 
+		// Set ground's position
 		ground->GetComponent<Transform>()->SetPosition(0.0f, -0.8f);
 
-		player->AddComponent(new Animator());
+		// Set player components
 		player->GetComponent<Transform>()->SetPosition(0.0f, -0.4f);
+		// Add animator
+		player->AddComponent(new Animator());
 		player->GetComponent<Animator>()->AddAnimation("anim/playerIdle.bin");
 		player->GetComponent<Animator>()->AddAnimation("anim/playerRun.bin");
+		// Add sound source
+		player->AddComponent(new SoundSource());
+		// Add player script
 		player->AddComponent(new Player());
 		player->GetComponent<Player>()->m_TextRenderer = text->GetComponent<TextRenderer>();
+		player->GetComponent<Player>()->m_CoinAudio = new AudioClip("sound/coin.ogg");
 
+		// Set coin components
 		coin->AddComponent(new Coin());
 		coin->GetComponent<Coin>()->m_Player = player;
 
+		// Set text components
+		// Add Text Renderer
 		text->GetComponent<TextRenderer>()->SetText("Score: 0");
 		text->GetComponent<TextRenderer>()->SetFont("fonts/Righteous.ttf");
 		text->GetComponent<TextRenderer>()->SetColor(0.7f, 0.0f, 0.0f, 1.0f);
+		// Set transform properties
 		text->GetComponent<Transform>()->SetScale(0.002f, 0.002f);
 		text->GetComponent<Transform>()->SetPosition(-0.95f, 0.85f);
 
