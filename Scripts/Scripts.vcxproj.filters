@@ -24,7 +24,7 @@
     <ClInclude Include="include\API.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Coin.h">
+    <ClInclude Include="include\Collectable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -32,7 +32,7 @@
     <ClCompile Include="src\Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Coin.cpp">
+    <ClCompile Include="src\Collectable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

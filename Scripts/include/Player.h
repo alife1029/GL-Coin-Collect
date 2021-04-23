@@ -8,13 +8,12 @@ class SCRIPT_API Player : public engine::Component
 public:
 	void OnAttach() override;
 	void Update() override;
-	void IncreaseScore();
+	void IncreaseScore(const uint32_t amount);
+	void DecreaseScore(const uint32_t amount);
 	std::string GetType() override;
 public:
 	engine::TextRenderer* m_TextRenderer = nullptr;
-	engine::AudioClip* m_CoinAudio = nullptr;
 private:
-	engine::SoundSource* m_SoundSource = nullptr;
 	engine::Transform* m_Transform = nullptr;
 	engine::Animator* m_Animator = nullptr;
 	float m_Speed = 0.9f;

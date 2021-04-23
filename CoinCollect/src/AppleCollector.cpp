@@ -17,15 +17,19 @@ class AppleCollector : public Application, EventSystem
 {
 public:
 	AppleCollector(const ApplicationConfig& config) : Application(config)
-	{
+	{		
+		srand(static_cast<uint32_t>(time(0)));
+
 		viewport = new Viewport(config.width, config.height);
 
 		// Create game objects
 		background = new Sprite("assets/background.png", { 2.0f, 2.0f });
 		ground = new Sprite("assets/ground.png", { 2.0f, 0.4f });
 		player = new Sprite("assets/Character/idle.png", { 0.36f, 0.48f });
-		coin = new Sprite("assets/coinGold.png", { 0.12f, 0.12f });
 		text = new Text();
+		// Create coins
+		for (size_t i = 0; i < 5; i++)
+			collectables.push_back(new Sprite("assets/coinGold.png", { 0.12f, 0.12f }));
 
 		// Set ground's position
 		ground->GetComponent<Transform>()->SetPosition(0.0f, -0.8f);
@@ -40,12 +44,17 @@ public:
 		player->AddComponent(new SoundSource());
 		// Add player script
 		player->AddComponent(new Player());
-		player->GetComponent<Player>()->m_TextRenderer = text->GetComponent<TextRenderer>();
-		player->GetComponent<Player>()->m_CoinAudio = new AudioClip("sound/coin.ogg");
+		player->GetComponent<Player>()->m_TextRenderer = text->GetComponent<TextRenderer>();		
 
 		// Set coin components
-		coin->AddComponent(new Coin());
-		coin->GetComponent<Coin>()->m_Player = player;
+		for (size_t i = 0; i < collectables.size(); i++)
+		{
+			collectables[i]->AddComponent(new SoundSource());
+			collectables[i]->AddComponent(new Collectable());
+			collectables[i]->GetComponent<Collectable>()->m_Player = player;
+			collectables[i]->GetComponent<Collectable>()->m_CoinAudio = new AudioClip("sound/coin.ogg");
+			collectables[i]->GetComponent<Collectable>()->m_PoopAudio = new AudioClip("sound/poop.ogg");
+		}
 
 		// Set text components
 		// Add Text Renderer
@@ -64,8 +73,10 @@ public:
 		delete background;
 		delete ground;
 		delete player;
-		delete coin;
 		delete text;
+
+		for (size_t i = 0; i < collectables.size(); i++)
+			delete collectables[i];
 	}
 
 	void Update() override
@@ -73,8 +84,10 @@ public:
 		background->Update();
 		ground->Update();
 		player->Update();
-		coin->Update();
 		text->Update();
+
+		for (size_t i = 0; i < collectables.size(); i++)
+			collectables[i]->Update();
 	}
 
 	void Resize(int width, int height) override
@@ -87,8 +100,9 @@ private:
 	Sprite* background;
 	Sprite* ground;
 	Sprite* player;
-	Sprite* coin;
 	Text* text;
+
+	std::vector<Sprite*> collectables;
 };
 
 int main()
