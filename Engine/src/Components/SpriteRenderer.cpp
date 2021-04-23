@@ -3,6 +3,7 @@
 #include "Engine/Graphics/ShaderProgram.h"
 #include "Engine/Entity/GameObject.h"
 #include "Engine/Components/Transform.h"
+#include "Engine/Exception/Exception.h"
 #include <glad/glad.h>
 #include <typeinfo>
 
@@ -38,7 +39,7 @@ namespace engine {
 	void SpriteRenderer::OnAttach()
 	{
 		if (GetGameObject()->GetComponent<Transform>() == nullptr)
-			throw "You must attach Transform before than Sprite Renderer!";
+			throw EngineException("You must attach Transform before than Sprite Renderer!");
 
 		m_Shader->Use();
 

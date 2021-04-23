@@ -1,6 +1,7 @@
 #include "Engine/Components/Animator.h"
 #include "Engine/Time.h"
 #include "Engine/Entity/GameObject.h"
+#include "Engine/Exception/Exception.h"
 #include <fstream>
 #include <typeinfo>
 
@@ -37,7 +38,7 @@ namespace engine {
 	{ 
 		m_Renderer = GetGameObject()->GetComponent<SpriteRenderer>();
 		if (m_Renderer == nullptr)
-			throw "You must attach Sprite Renderer before than Animator!";
+			throw EngineException("You must attach Sprite Renderer before than Animator!");
 	}
 	
 	void Animator::Update() 

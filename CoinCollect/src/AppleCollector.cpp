@@ -3,8 +3,13 @@
 	#pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")
 #endif
 
+#define _CRT_SECURE_NO_WARNINGS
+
 #include <Engine.h>
 #include <Scripts.h>
+#include <fstream>
+#include <chrono>
+#include <ctime>
 
 using namespace engine;
 
@@ -88,13 +93,29 @@ private:
 
 int main()
 {
-	ApplicationConfig config;
-	config.width = 600;
-	config.height = 600;
-	config.fullscreen = false;
-	config.title = "Apple Collector";
+	try
+	{
+		ApplicationConfig config;
+		config.width = 600;
+		config.height = 600;
+		config.fullscreen = false;
+		config.title = "Apple Collector";
 
-	AppleCollector* game = new AppleCollector(config);
-	game->Run();
-	delete game;
+		AppleCollector* game = new AppleCollector(config);
+		game->Run();
+		delete game;
+	}
+	catch (const std::exception& ex)
+	{
+		std::ofstream stream("ErrorLog.txt", std::ios::app);
+
+		if (stream.is_open())
+		{
+			time_t currentTime = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+			std::string currentTimeStr = std::string(ctime(&currentTime));
+			stream << "[" << currentTimeStr.substr(0, currentTimeStr.size() - 1) << "] " << ex.what() << std::endl;
+		}
+
+		stream.close();
+	}
 }

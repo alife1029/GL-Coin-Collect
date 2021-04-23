@@ -1,4 +1,5 @@
 #include "Engine/Graphics/FontManager.h"
+#include "Engine/Exception/Exception.h"
 #include <glad/glad.h>
 #include <ft2build.h>
 #include FT_FREETYPE_H
@@ -16,12 +17,12 @@ namespace engine {
 			// Initialize freetype
 			FT_Library ft;
 			if (FT_Init_FreeType(&ft))
-				throw "Failed to initialize Freetype Library!";
+				throw EngineException("Failed to initialize Freetype Library!");
 			
 			// Load Font Family
 			FT_Face face;
 			if (FT_New_Face(ft, fontFile.c_str(), 0, &face))
-				throw "Failed to load font!";
+				throw EngineException("Failed to load font!");
 
 			// Read all characters
 			FT_Set_Pixel_Sizes(face, 0, 64);
@@ -30,10 +31,7 @@ namespace engine {
 			for (unsigned char c = 0; c < 255; c++)
 			{
 				if (FT_Load_Char(face, c, FT_LOAD_RENDER))
-				{
-					printf("Failed to load Glyph!\n");
 					continue;
-				}
 
 				// Generate texture
 				uint32_t texture;

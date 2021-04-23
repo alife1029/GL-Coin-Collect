@@ -106,7 +106,6 @@ namespace engine {
 	{
 		std::for_each(m_SoundEffects.begin(), m_SoundEffects.end(),
 			[](const std::pair<std::string, uint32_t>& p) {
-				printf("{ %s,\t%d }\n", p.first.c_str(), p.second);
 				alDeleteBuffers(1, &p.second);
 			});
 

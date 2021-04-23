@@ -3,6 +3,7 @@
 #include "Engine/Graphics/FontManager.h"
 #include "Engine/Math/Vector2.h"
 #include "Engine/Entity/GameObject.h"
+#include "Engine/Exception/Exception.h"
 #include <typeinfo>
 #include <glad/glad.h>
 
@@ -18,7 +19,7 @@ namespace engine {
 	{
 		m_Transform = GetGameObject()->GetComponent<Transform>();
 		if (m_Transform == nullptr)
-			throw "You must add Transform before than Text Renderer!";
+			throw EngineException("You must add Transform before than Text Renderer!");
 
 		// Load Shader
 		m_Shader = new ShaderProgram("GLshaders/text.vert", "GLshaders/text.frag");

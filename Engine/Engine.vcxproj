@@ -194,6 +194,7 @@ copy /y "$(SolutionDir)Dependencies\sndfile\bin\$(Platform)\sndfile.dll" "$(Targ
     <ClInclude Include="include\Engine\Components\SoundSource.h" />
     <ClInclude Include="include\Engine\Components\TextRenderer.h" />
     <ClInclude Include="include\Engine\Entity\Text.h" />
+    <ClInclude Include="include\Engine\Exception\Exception.h" />
     <ClInclude Include="include\Engine\Graphics\FontManager.h" />
     <ClInclude Include="include\Engine\Graphics\Viewport.h" />
     <ClInclude Include="include\Engine\Input\EventSystem.h" />
@@ -225,6 +226,7 @@ copy /y "$(SolutionDir)Dependencies\sndfile\bin\$(Platform)\sndfile.dll" "$(Targ
     <ClCompile Include="src\Components\SoundSource.cpp" />
     <ClCompile Include="src\Components\TextRenderer.cpp" />
     <ClCompile Include="src\Entity\Text.cpp" />
+    <ClCompile Include="src\Exception\Exception.cpp" />
     <ClCompile Include="src\Graphics\FontManager.cpp" />
     <ClCompile Include="src\Graphics\Viewport.cpp" />
     <ClCompile Include="src\Input\EventSystem.cpp" />

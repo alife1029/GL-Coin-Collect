@@ -35,3 +35,6 @@
 
 // Graphics
 #include <Engine/Graphics/Viewport.h>
+
+// Exception
+#include <Engine/Exception/Exception.h>
