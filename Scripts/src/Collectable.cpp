@@ -68,7 +68,7 @@ void Collectable::Reset()
 	}
 
 	m_Transform->SetPosition((rand() % (35) - 17) / 20.0f, 1.0f);
-	printf("Reset\n");
+	m_Speed += 0.01f;
 }
 
 

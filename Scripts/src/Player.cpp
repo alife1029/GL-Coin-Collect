@@ -51,6 +51,7 @@ void Player::Update()
 void Player::IncreaseScore(const uint32_t amount)
 {
 	m_Score += amount;
+	m_Speed += powf(amount / 50.0f, 2.0f);
 	std::string scoreStr = "Score: " + std::to_string(m_Score);
 	m_TextRenderer->SetText(scoreStr.c_str());
 }
