@@ -18,6 +18,7 @@ namespace engine {
 	struct FontFamily
 	{
 		std::map<char, Character> Characters;
+		float fontSize;
 	};
 
 	class FontManager

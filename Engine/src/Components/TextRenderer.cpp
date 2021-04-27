@@ -64,12 +64,62 @@ namespace engine {
 
 		float x = m_Transform->GetPosition().x;
 		float y = m_Transform->GetPosition().y;
-		// Iterate trought all characters
+		float width = 0.0f;
+		float height = m_Font->fontSize * m_Transform->GetScale().y;
+
+		// Calculate width and height of text
 		std::string::const_iterator c;
 		for (c = m_Text.begin(); c != m_Text.end(); c++)
 		{
 			Character ch = m_Font->Characters[*c];
-			
+			width += (ch.Advance >> 6) * m_Transform->GetScale().x;
+		}
+		
+		// Calculate start coords
+		switch (m_Anchor)
+		{
+		case Anchor::CENTER:
+			x = m_Transform->GetPosition().x - width / 2.0f;
+			break;
+
+		case Anchor::RIGHT:
+			x = m_Transform->GetPosition().x - width;
+			break;
+
+		case Anchor::TOP_LEFT:
+			y = m_Transform->GetPosition().y - height;
+			break;
+
+		case Anchor::TOP_CENTER:
+			x = m_Transform->GetPosition().x - width / 2.0f;
+			y = m_Transform->GetPosition().y - height;
+			break;
+
+		case Anchor::TOP_RIGHT:
+			x = m_Transform->GetPosition().x - width;
+			y = m_Transform->GetPosition().y - height;
+			break;
+
+		case Anchor::BOTTOM_LEFT:
+			y = m_Transform->GetPosition().y + height;
+			break;
+
+		case Anchor::BOTTOM_CENTER:
+			x = m_Transform->GetPosition().x - width / 2.0f;
+			y = m_Transform->GetPosition().y + height / 2.0f;
+			break;
+
+		case Anchor::BOTTOM_RIGHT:
+			x = m_Transform->GetPosition().x - width;
+			y = m_Transform->GetPosition().y + height / 2.0f;
+			break;
+		}
+
+		// Render all characters
+		for (c = m_Text.begin(); c != m_Text.end(); c++)
+		{
+			Character ch = m_Font->Characters[*c];
+
 			float xPos = x + ch.Bearing.x * m_Transform->GetScale().x;
 			float yPos = y - (ch.Size.y - ch.Bearing.y) * m_Transform->GetScale().y;
 			float w = ch.Size.x * m_Transform->GetScale().x;
@@ -82,7 +132,7 @@ namespace engine {
 				{ xPos + w,	yPos,		1.0f, 1.0f },
 				{ xPos + w,	yPos + h,	1.0f, 0.0f }
 			};
-			
+
 			// Render glyph over quad
 			glBindTexture(GL_TEXTURE_2D, ch.TextureID);
 			// Update content of VBO memory
@@ -110,6 +160,14 @@ namespace engine {
 	{
 		m_Text = text;
 	}
+	void TextRenderer::SetAnchor(Anchor anchor)
+	{
+		m_Anchor = anchor;
+	}
+	/*void TextRenderer::SetAlign(TextAlign align)
+	{
+		m_Align = align;
+	}*/
 	void TextRenderer::SetColor(const Vector4& color)
 	{
 		m_Color = color;
@@ -123,6 +181,14 @@ namespace engine {
 	{ 
 		return m_Text;
 	}
+	Anchor TextRenderer::GetAnchor()
+	{
+		return m_Anchor;
+	}
+	/*TextAlign TextRenderer::GetTextAlign()
+	{
+		return m_Align;
+	}*/
 	Vector4 TextRenderer::GetColor()
 	{
 		return m_Color;

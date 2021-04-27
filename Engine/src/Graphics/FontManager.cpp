@@ -62,8 +62,10 @@ namespace engine {
 					static_cast<uint32_t>(face->glyph->advance.x)
 				};
 				newFont->Characters.insert(std::pair<char, Character>(c, newCharacter));
+				if (newCharacter.Size.y > newFont->fontSize)
+					newFont->fontSize = newCharacter.Size.y;
 			}
-
+			
 			glBindTexture(GL_TEXTURE_2D, 0);
 
 			// Shutdown Freetype

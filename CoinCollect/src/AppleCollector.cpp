@@ -61,9 +61,10 @@ public:
 		text->GetComponent<TextRenderer>()->SetText("Score: 0");
 		text->GetComponent<TextRenderer>()->SetFont("fonts/Righteous.ttf");
 		text->GetComponent<TextRenderer>()->SetColor(0.7f, 0.0f, 0.0f, 1.0f);
+		text->GetComponent<TextRenderer>()->SetAnchor(Anchor::TOP_LEFT);
 		// Set transform properties
 		text->GetComponent<Transform>()->SetScale(0.002f, 0.002f);
-		text->GetComponent<Transform>()->SetPosition(-0.95f, 0.85f);
+		text->GetComponent<Transform>()->SetPosition(-1.0f, 1.0f);
 
 		SetEventListener(this);
 	}
@@ -113,7 +114,7 @@ int main()
 		config.width = 600;
 		config.height = 600;
 		config.fullscreen = false;
-		config.title = "Apple Collector";
+		config.title = "Coin Collect Game";
 
 		AppleCollector* game = new AppleCollector(config);
 		game->Run();
