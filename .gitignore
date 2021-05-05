@@ -2,9 +2,6 @@
 .vs/
 
 # Output Directories
-bin/
-bin-int/
-obj/
 build/
 
 # Visual Studio User-Spesific Files
